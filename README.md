@@ -37,5 +37,6 @@ Check out the [HERE documentation](https://developer.here.com/rest-apis/document
 * Knowledge of design patterns.
 * Any necessaries process to make sure the quality of the code.
 * Clean code.
+* Please avoid ONE BIG git commit - this will be treated as failure of the test
 
 If you need help do not hesitate to contact us.
