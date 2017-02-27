@@ -22,6 +22,8 @@
 		5C76B0811E638CEA00A93570 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C76B0801E638CEA00A93570 /* GLKit.framework */; };
 		5C76B0831E638CF100A93570 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C76B0821E638CF100A93570 /* SystemConfiguration.framework */; };
 		5CA322181E6425B400255A55 /* HereAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA322171E6425B400255A55 /* HereAPI.swift */; };
+		5CA3221A1E643A7700255A55 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA322191E643A7700255A55 /* EndPoints.swift */; };
+		5CA3221C1E643FED00255A55 /* HereServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA3221B1E643FED00255A55 /* HereServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		5C76B0801E638CEA00A93570 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		5C76B0821E638CF100A93570 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5CA322171E6425B400255A55 /* HereAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HereAPI.swift; sourceTree = "<group>"; };
+		5CA322191E643A7700255A55 /* EndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
+		5CA3221B1E643FED00255A55 /* HereServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HereServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				5CA322171E6425B400255A55 /* HereAPI.swift */,
+				5CA322191E643A7700255A55 /* EndPoints.swift */,
+				5CA3221B1E643FED00255A55 /* HereServices.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -309,6 +315,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C76B04A1E6388A000A93570 /* DetailViewController.swift in Sources */,
+				5CA3221C1E643FED00255A55 /* HereServices.swift in Sources */,
+				5CA3221A1E643A7700255A55 /* EndPoints.swift in Sources */,
 				5C76B0481E6388A000A93570 /* MasterViewController.swift in Sources */,
 				5CA322181E6425B400255A55 /* HereAPI.swift in Sources */,
 				5C76B0461E6388A000A93570 /* AppDelegate.swift in Sources */,
