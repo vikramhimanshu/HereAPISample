@@ -21,6 +21,7 @@
 		5C76B07F1E638CE100A93570 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C76B07E1E638CE100A93570 /* libz.1.2.5.tbd */; };
 		5C76B0811E638CEA00A93570 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C76B0801E638CEA00A93570 /* GLKit.framework */; };
 		5C76B0831E638CF100A93570 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C76B0821E638CF100A93570 /* SystemConfiguration.framework */; };
+		5CA322181E6425B400255A55 /* HereAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA322171E6425B400255A55 /* HereAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		5C76B07E1E638CE100A93570 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
 		5C76B0801E638CEA00A93570 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		5C76B0821E638CF100A93570 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5CA322171E6425B400255A55 /* HereAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HereAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		5C76B0441E6388A000A93570 /* WoolworthsiOSTest */ = {
 			isa = PBXGroup;
 			children = (
+				5CA322161E64259800255A55 /* Network */,
 				5C76B0451E6388A000A93570 /* AppDelegate.swift */,
 				5C76B0471E6388A000A93570 /* MasterViewController.swift */,
 				5C76B0491E6388A000A93570 /* DetailViewController.swift */,
@@ -158,6 +161,14 @@
 				5C76B0781E638C6200A93570 /* NMAKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5CA322161E64259800255A55 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				5CA322171E6425B400255A55 /* HereAPI.swift */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +310,7 @@
 			files = (
 				5C76B04A1E6388A000A93570 /* DetailViewController.swift in Sources */,
 				5C76B0481E6388A000A93570 /* MasterViewController.swift in Sources */,
+				5CA322181E6425B400255A55 /* HereAPI.swift in Sources */,
 				5C76B0461E6388A000A93570 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -560,6 +572,7 @@
 				5C76B06E1E6388A000A93570 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5C76B06F1E6388A000A93570 /* Build configuration list for PBXNativeTarget "WoolworthsiOSTestTests" */ = {
 			isa = XCConfigurationList;
@@ -568,6 +581,7 @@
 				5C76B0711E6388A000A93570 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5C76B0721E6388A000A93570 /* Build configuration list for PBXNativeTarget "WoolworthsiOSTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -576,6 +590,7 @@
 				5C76B0741E6388A000A93570 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
