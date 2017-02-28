@@ -17,7 +17,7 @@ struct TransistRequest : HereAPIRequest {
     }
     internal var queryItems: [URLQueryItem]?
     
-    init(with lat: Double, long: Double, radius: Int = 350, max: Int = 5) {
+    init(withLat lat: Double, long: Double, radius: Int = 350, max: Int = 5) {
         queryItems = Array()
         queryItems?.append(URLQueryItem(name: "y", value: String(lat)))
         queryItems?.append(URLQueryItem(name: "x", value: String(long)))
@@ -68,6 +68,8 @@ struct TrafficRequest : HereAPIRequest {
         for item in criticality {
             criticalityString += "\(item.rawValue),"
         }
+//        criticalityString.remove(at: criticalityString.characters.count) //removing the extra ','
+        
         if criticalityString.isEmpty {
             criticalityString = String(Criticality.major.rawValue)
         }
@@ -78,10 +80,39 @@ struct TrafficRequest : HereAPIRequest {
 }
 
 protocol ServicesProtocol {
-    typealias SuccessBlock = (_ data: AnyObject) -> Void
+    associatedtype SuccessBlock
     typealias FailureBlock = (_ responseType:Int, _ error: NSError?) -> Void
 
     var task: URLSessionDataTask? {get}
     func cancel()
-    func fetch(request: HereAPIRequest, successHandler: @escaping SuccessBlock, and failureHandler: FailureBlock?)
+    mutating func fetch(request: HereAPIRequest, successHandler: SuccessBlock, and failureHandler: FailureBlock?)
+}
+
+extension ServicesProtocol {
+    var manager: HereAPIManager {
+        return HereAPIManager.shared
+    }
+    public func cancel() {
+        task?.cancel()
+    }
+    public func remoteFetch(with request: URLRequest, successHandler: @escaping SuccessHandler, and failureHandler: @escaping FailureHandler) -> URLSessionDataTask? {
+        return manager.remoteFetch(with: request, successHandler: successHandler, and: failureHandler)
+    }
+}
+
+struct TransitService : ServicesProtocol {
+    
+    typealias SuccessBlock = (_ data: TransitRoot) -> Void
+    internal var task: URLSessionDataTask?
+    
+    internal mutating func fetch(request: HereAPIRequest, successHandler: @escaping SuccessBlock, and failureHandler: ServicesProtocol.FailureBlock?) {
+        let urlRequest = URLRequest(url: request.url)
+        task = remoteFetch(with: urlRequest, successHandler: { (responseCode: Int, responseData: AnyObject) in
+            let parsedObject = TransitRoot(fromDictionary: responseData as! [String : AnyObject])
+            successHandler(parsedObject)
+        }) { (responseCode: Int, error: NSError?, response: URLResponse?) in
+            print(error ?? "No Error")
+            response?.prettyPrint()
+        }
+    }
 }

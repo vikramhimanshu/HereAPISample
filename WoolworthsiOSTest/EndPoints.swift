@@ -50,11 +50,17 @@ protocol HereAPIRequest {
 }
 
 extension HereAPIRequest {
-    
+//    iOS SDK
+    //sC1KFSHbJxRcZvXSgJP8
+    //l-NdHFgoIn3BOkUGBoERnQ
+
     mutating func defaultQueryItems() -> [URLQueryItem] {
         var queryParams = [URLQueryItem]()
-        queryParams.append(URLQueryItem(name: "app_id", value: "cgRQ5yJkaMyTaG2pemaf"))
-        queryParams.append(URLQueryItem(name: "app_code", value: "GQ4ciX3eIKEKD1Ttkc_Plg"))
+        queryParams.append(URLQueryItem(name: "app_id", value: "Izya3Dpb1nJO9Xmko6wV"))
+        queryParams.append(URLQueryItem(name: "app_code", value: "wo6oZXfb2xRSScyZ3BUkXQ"))
         return queryParams
     }
+    
+    //cgRQ5yJkaMyTaG2pemaf
+    //GQ4ciX3eIKEKD1Ttkc_Plg
 }

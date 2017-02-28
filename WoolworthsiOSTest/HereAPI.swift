@@ -58,7 +58,7 @@ class HereAPIManager: NSObject {
         session.invalidateAndCancel()
     }
     
-    func remoteFetch(with request: URLRequest, successHandler: @escaping SuccessHandler, and failureHandler: @escaping FailureHandler) {
+    func remoteFetch(with request: URLRequest, successHandler: @escaping SuccessHandler, and failureHandler: @escaping FailureHandler) -> URLSessionDataTask? {
         
         let task = session.dataTask(with: request) { (data, response, error) in
             
@@ -114,6 +114,7 @@ class HereAPIManager: NSObject {
         }
         
         task.resume()
+        return task
     }
 }
 

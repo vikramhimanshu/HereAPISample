@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MasterViewController: UITableViewController {
 
+    private lazy var location = CurrentLocation()
+    
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
 
@@ -30,6 +33,50 @@ class MasterViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         super.viewWillAppear(animated)
+        
+        location.requestAuthorizationIfNeeded { (status: CLAuthorizationStatus, error: NSError?) in
+            switch status {
+            case .authorizedAlways, .authorizedWhenInUse :
+                self.fetchLocation()
+            default:
+                
+                break
+            }
+        }
+        
+        var service = TransitService()
+        let request = TransistRequest(withLat: -33.865143, long: 151.209900)
+        
+        service.fetch(request: request, successHandler: { (data: TransitRoot) in
+            
+        }) { (responseCode: Int, error: NSError?) in
+            
+        }
+    }
+    
+    private func fetchLocation() {
+        switch location.status {
+        case .authorizedAlways, .authorizedWhenInUse:
+            location.get(withCompletionBlock: { (loc: CLLocationCoordinate2D) in
+                
+            }, and: { (status: CLAuthorizationStatus, error: NSError?) in
+                
+            })
+        default:
+            let alert = UIAlertController(title: "Unable to determine location", message: "In order to provide you the services we would need to use your current location", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction) in
+                
+            }))
+            alert.addAction(UIAlertAction(title: "Change", style: .default, handler: {(action: UIAlertAction) in
+                if let settingsURL = URL(string: UIApplicationOpenSettingsURLString) {
+                    UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+                }
+            }))
+            self.present(alert, animated: true, completion: {
+                print("Anything we might wanna do post presenting the alert or just pass nil")
+            })
+            break
+        }
     }
 
     override func didReceiveMemoryWarning() {
