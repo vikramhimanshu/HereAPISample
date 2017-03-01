@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TRAFFICITEM{
+struct TRAFFICITEM {
 
 	var aBBREVIATION : ABBREVIATION?
 	var cOMMENTS : String?
@@ -122,4 +122,10 @@ struct TRAFFICITEM{
 		return dictionary
 	}
 
+}
+
+extension TRAFFICITEM : Equatable {
+    public static func ==(lhs: TRAFFICITEM, rhs: TRAFFICITEM) -> Bool {
+        return lhs.oRIGINALTRAFFICITEMID == rhs.oRIGINALTRAFFICITEMID && lhs.tRAFFICITEMID == rhs.tRAFFICITEMID
+    }
 }

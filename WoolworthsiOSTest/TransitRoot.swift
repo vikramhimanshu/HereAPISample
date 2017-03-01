@@ -9,7 +9,7 @@ import Foundation
 
 struct TransitRoot{
 
-	var res : Re!
+	var res : Re?
 
 
 	/**
@@ -27,7 +27,7 @@ struct TransitRoot{
 	func toDictionary() -> [String : AnyObject]
 	{
 		var dictionary = [String : AnyObject]()
-		if res != nil{
+		if let res = res {
 			dictionary["Res"] = res.toDictionary() as AnyObject?
 		}
 		return dictionary

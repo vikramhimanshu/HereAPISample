@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum Criticality {
-    case minor, major, critical, lowImpact, unknown
+enum Criticality : Int {
+    case minor = 2, major = 1, critical = 0, lowImpact = 3, unknown
 }
 
 struct CRITICALITY {

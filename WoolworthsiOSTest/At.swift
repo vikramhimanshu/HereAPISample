@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct At{
+struct At {
 
 	var value: String?
 	var id : String?

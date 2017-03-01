@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TrafficRoot{
+struct TrafficRoot {
 
 	var timestamp : String?
 	var trafficItems : TRAFFICITEMS?

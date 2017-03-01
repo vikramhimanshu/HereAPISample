@@ -9,7 +9,7 @@ import Foundation
 
 struct Station {
 
-	var stn : [Stn]!
+	var stn : [Stn]?
 
 
 	/**

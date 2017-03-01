@@ -9,22 +9,22 @@ import Foundation
 
 struct Stn {
 
-	var ccode : String!
-	var city : String!
-	var country : String!
-	var distance : String!
-	var district : String!
-	var duration : String!
-	var hasBoard : String!
-	var id : String!
-	var name : String!
-	var number : String!
-	var postal : String!
-	var state : String!
-	var street : String!
-	var x : String!
-	var y : String!
-	var lines : Line!
+	var ccode : String?
+	var city : String?
+	var country : String?
+	var distance : String?
+	var district : String?
+	var duration : String?
+	var hasBoard : String?
+	var id : String?
+	var name : String?
+	var number : String?
+	var postal : String?
+	var state : String?
+	var street : String?
+	var x : String?
+	var y : String?
+	var lines : Line?
 
 
 	/**
@@ -47,8 +47,8 @@ struct Stn {
 		x = dictionary["@x"] as? String
 		y = dictionary["@y"] as? String
 		if let linesData = dictionary["Lines"] as? [String : AnyObject] {
-				lines = Line(fromDictionary: linesData)
-			}
+            lines = Line(fromDictionary: linesData)
+        }
 	}
 
 	/**
@@ -103,10 +103,17 @@ struct Stn {
 		if y != nil{
 			dictionary["@y"] = y as AnyObject?
 		}
-		if lines != nil{
+		if let lines = lines {
 			dictionary["Lines"] = lines.toDictionary() as AnyObject?
 		}
 		return dictionary
 	}
 
+}
+
+extension Stn : Equatable {
+    
+    public static func ==(lhs: Stn, rhs: Stn) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
