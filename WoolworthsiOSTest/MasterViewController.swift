@@ -13,17 +13,21 @@ class MasterViewController: UITableViewController {
 
     private lazy var location = CurrentLocation()
     
-    var detailViewController: DetailViewController? = nil
-    var objects = [Any]()
+    private var detailViewController: DetailViewController? = nil
+    private var objects = [Stn]() {
+        didSet (oldVal) {
+            if oldVal != objects {
+                DispatchQueue.main.async(execute: { 
+                    self.tableView.reloadData()
+                })
+            }
+        }
+    }
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
-        self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
@@ -31,53 +35,53 @@ class MasterViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         super.viewWillAppear(animated)
-        
-        location.requestAuthorizationIfNeeded { (status: CLAuthorizationStatus, error: NSError?) in
+        self.title = "Stations Around Here"
+        location.requestAuthorizationIfNeeded { [weak self] (status: CLAuthorizationStatus, error: NSError?) in
             switch status {
             case .authorizedAlways, .authorizedWhenInUse :
-                self.fetchLocation()
+                self?.fetchLocation()
             default:
-                
+                self?.locationErrorAlert()
                 break
             }
         }
+    }
+    
+    private func fetchLocation() {
+        location.get(withCompletionBlock: { [weak self] (loc: CLLocationCoordinate2D) in
+            self?.fetchTransitInfo(forLat: loc.latitude, long: loc.longitude)
+        }, and: { [weak self] (status: CLAuthorizationStatus, error: NSError?) in
+            self?.locationErrorAlert()
+        })
+    }
+    
+    private func fetchTransitInfo(forLat lat: Double, long: Double) {
+        var service = TransitService()
+        let request = TransistRequest(withLat: lat, long: long)
         
-        var service = WeatherService()
-        
-        let request = WeatherRequest(withLat: -33.865143, long: 151.209900)
-//        let request2 = TrafficRequest(withLat: -33.865143, long: 151.209900)
-        service.fetch(request: request, successHandler: { (data: TransitRoot) in
-            
+        service.fetch(request: request, successHandler: { [weak self] (data: TransitRoot) in
+            if let objs = data.res?.stations?.stn {
+                self?.objects = objs
+            }
         }) { (responseCode: Int, error: NSError?) in
             
         }
     }
     
-    private func fetchLocation() {
-        switch location.status {
-        case .authorizedAlways, .authorizedWhenInUse:
-            location.get(withCompletionBlock: { (loc: CLLocationCoordinate2D) in
-                
-            }, and: { (status: CLAuthorizationStatus, error: NSError?) in
-                
-            })
-        default:
-            let alert = UIAlertController(title: "Unable to determine location", message: "In order to provide you the services we would need to use your current location", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction) in
-                
-            }))
-            alert.addAction(UIAlertAction(title: "Change", style: .default, handler: {(action: UIAlertAction) in
-                if let settingsURL = URL(string: UIApplicationOpenSettingsURLString) {
-                    UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
-                }
-            }))
-            self.present(alert, animated: true, completion: {
-                print("Anything we might wanna do post presenting the alert or just pass nil")
-            })
-            break
-        }
+    private func locationErrorAlert() {
+        let alert = UIAlertController(title: "Unable to determine location", message: "In order to provide you the services we would need to use your current location", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction) in
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Settings", style: .default, handler: {(action: UIAlertAction) in
+            if let settingsURL = URL(string: UIApplicationOpenSettingsURLString) {
+                UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -85,20 +89,13 @@ class MasterViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func insertNewObject(_ sender: Any) {
-        objects.insert(NSDate(), at: 0)
-        let indexPath = IndexPath(row: 0, section: 0)
-        self.tableView.insertRows(at: [indexPath], with: .automatic)
-    }
-
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
+                controller.detailItem = objects[indexPath.row]
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
@@ -106,7 +103,6 @@ class MasterViewController: UITableViewController {
     }
 
     // MARK: - Table View
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -118,25 +114,10 @@ class MasterViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        let object = objects[indexPath.row]
+        cell.textLabel!.text = object.name
         return cell
     }
-
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            objects.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        }
-    }
-
 
 }
 
