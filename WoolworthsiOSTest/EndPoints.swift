@@ -61,6 +61,7 @@ extension HereAPIRequest {
         return queryParams
     }
     
+    //OLD
     //cgRQ5yJkaMyTaG2pemaf
     //GQ4ciX3eIKEKD1Ttkc_Plg
 }

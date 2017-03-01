@@ -31,6 +31,26 @@
 		5CE250711E6574B600B3D466 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE2506B1E6574B600B3D466 /* Station.swift */; };
 		5CE250721E6574B600B3D466 /* Stn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE2506C1E6574B600B3D466 /* Stn.swift */; };
 		5CE250731E6574B600B3D466 /* TransitRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE2506D1E6574B600B3D466 /* TransitRoot.swift */; };
+		5CED60EE1E66301900465694 /* ABBREVIATION.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60DA1E66301900465694 /* ABBREVIATION.swift */; };
+		5CED60EF1E66301900465694 /* ALERTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60DB1E66301900465694 /* ALERTC.swift */; };
+		5CED60F01E66301900465694 /* CRITICALITY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60DC1E66301900465694 /* CRITICALITY.swift */; };
+		5CED60F11E66301900465694 /* DEFINED.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60DD1E66301900465694 /* DEFINED.swift */; };
+		5CED60F21E66301900465694 /* DESCRIPTION.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60DE1E66301900465694 /* DESCRIPTION.swift */; };
+		5CED60F31E66301900465694 /* DIRECTION.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60DF1E66301900465694 /* DIRECTION.swift */; };
+		5CED60F41E66301900465694 /* EDGE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60E01E66301900465694 /* EDGE.swift */; };
+		5CED60F51E66301900465694 /* EVENT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60E11E66301900465694 /* EVENT.swift */; };
+		5CED60F61E66301900465694 /* GEOLOC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60E21E66301900465694 /* GEOLOC.swift */; };
+		5CED60F71E66301900465694 /* LOCATION.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60E31E66301900465694 /* LOCATION.swift */; };
+		5CED60F81E66301900465694 /* NAVTECH.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60E41E66301900465694 /* NAVTECH.swift */; };
+		5CED60F91E66301900465694 /* ORIGIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60E51E66301900465694 /* ORIGIN.swift */; };
+		5CED60FA1E66301900465694 /* RDSTMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60E61E66301900465694 /* RDSTMC.swift */; };
+		5CED60FB1E66301900465694 /* RDSTMCLOCATIONS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60E71E66301900465694 /* RDSTMCLOCATIONS.swift */; };
+		5CED60FC1E66301900465694 /* SCHEDULEDCONSTRUCTIONEVENT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60E81E66301900465694 /* SCHEDULEDCONSTRUCTIONEVENT.swift */; };
+		5CED60FD1E66301900465694 /* TO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60E91E66301900465694 /* TO.swift */; };
+		5CED60FE1E66301900465694 /* TRAFFICITEM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60EA1E66301900465694 /* TRAFFICITEM.swift */; };
+		5CED60FF1E66301900465694 /* TRAFFICITEMDETAIL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60EB1E66301900465694 /* TRAFFICITEMDETAIL.swift */; };
+		5CED61001E66301900465694 /* TRAFFICITEMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60EC1E66301900465694 /* TRAFFICITEMS.swift */; };
+		5CED61011E66301900465694 /* TrafficRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED60ED1E66301900465694 /* TrafficRoot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +101,26 @@
 		5CE2506B1E6574B600B3D466 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		5CE2506C1E6574B600B3D466 /* Stn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stn.swift; sourceTree = "<group>"; };
 		5CE2506D1E6574B600B3D466 /* TransitRoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitRoot.swift; sourceTree = "<group>"; };
+		5CED60DA1E66301900465694 /* ABBREVIATION.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABBREVIATION.swift; sourceTree = "<group>"; };
+		5CED60DB1E66301900465694 /* ALERTC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALERTC.swift; sourceTree = "<group>"; };
+		5CED60DC1E66301900465694 /* CRITICALITY.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRITICALITY.swift; sourceTree = "<group>"; };
+		5CED60DD1E66301900465694 /* DEFINED.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEFINED.swift; sourceTree = "<group>"; };
+		5CED60DE1E66301900465694 /* DESCRIPTION.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DESCRIPTION.swift; sourceTree = "<group>"; };
+		5CED60DF1E66301900465694 /* DIRECTION.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIRECTION.swift; sourceTree = "<group>"; };
+		5CED60E01E66301900465694 /* EDGE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDGE.swift; sourceTree = "<group>"; };
+		5CED60E11E66301900465694 /* EVENT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVENT.swift; sourceTree = "<group>"; };
+		5CED60E21E66301900465694 /* GEOLOC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GEOLOC.swift; sourceTree = "<group>"; };
+		5CED60E31E66301900465694 /* LOCATION.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LOCATION.swift; sourceTree = "<group>"; };
+		5CED60E41E66301900465694 /* NAVTECH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NAVTECH.swift; sourceTree = "<group>"; };
+		5CED60E51E66301900465694 /* ORIGIN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORIGIN.swift; sourceTree = "<group>"; };
+		5CED60E61E66301900465694 /* RDSTMC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDSTMC.swift; sourceTree = "<group>"; };
+		5CED60E71E66301900465694 /* RDSTMCLOCATIONS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDSTMCLOCATIONS.swift; sourceTree = "<group>"; };
+		5CED60E81E66301900465694 /* SCHEDULEDCONSTRUCTIONEVENT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCHEDULEDCONSTRUCTIONEVENT.swift; sourceTree = "<group>"; };
+		5CED60E91E66301900465694 /* TO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TO.swift; sourceTree = "<group>"; };
+		5CED60EA1E66301900465694 /* TRAFFICITEM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRAFFICITEM.swift; sourceTree = "<group>"; };
+		5CED60EB1E66301900465694 /* TRAFFICITEMDETAIL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRAFFICITEMDETAIL.swift; sourceTree = "<group>"; };
+		5CED60EC1E66301900465694 /* TRAFFICITEMS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRAFFICITEMS.swift; sourceTree = "<group>"; };
+		5CED60ED1E66301900465694 /* TrafficRoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrafficRoot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +236,16 @@
 		5CE250671E65748C00B3D466 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5CED60D91E662FD900465694 /* Weather */,
+				5CED60D81E662FD000465694 /* Traffic */,
+				5CED60D71E662FBA00465694 /* Transit */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		5CED60D71E662FBA00465694 /* Transit */ = {
+			isa = PBXGroup;
+			children = (
 				5CE250681E6574B600B3D466 /* At.swift */,
 				5CE250691E6574B600B3D466 /* Line.swift */,
 				5CE2506A1E6574B600B3D466 /* Re.swift */,
@@ -203,7 +253,41 @@
 				5CE2506C1E6574B600B3D466 /* Stn.swift */,
 				5CE2506D1E6574B600B3D466 /* TransitRoot.swift */,
 			);
-			name = Models;
+			name = Transit;
+			sourceTree = "<group>";
+		};
+		5CED60D81E662FD000465694 /* Traffic */ = {
+			isa = PBXGroup;
+			children = (
+				5CED60DA1E66301900465694 /* ABBREVIATION.swift */,
+				5CED60DB1E66301900465694 /* ALERTC.swift */,
+				5CED60DC1E66301900465694 /* CRITICALITY.swift */,
+				5CED60DD1E66301900465694 /* DEFINED.swift */,
+				5CED60DE1E66301900465694 /* DESCRIPTION.swift */,
+				5CED60DF1E66301900465694 /* DIRECTION.swift */,
+				5CED60E01E66301900465694 /* EDGE.swift */,
+				5CED60E11E66301900465694 /* EVENT.swift */,
+				5CED60E21E66301900465694 /* GEOLOC.swift */,
+				5CED60E31E66301900465694 /* LOCATION.swift */,
+				5CED60E41E66301900465694 /* NAVTECH.swift */,
+				5CED60E51E66301900465694 /* ORIGIN.swift */,
+				5CED60E61E66301900465694 /* RDSTMC.swift */,
+				5CED60E71E66301900465694 /* RDSTMCLOCATIONS.swift */,
+				5CED60E81E66301900465694 /* SCHEDULEDCONSTRUCTIONEVENT.swift */,
+				5CED60E91E66301900465694 /* TO.swift */,
+				5CED60EA1E66301900465694 /* TRAFFICITEM.swift */,
+				5CED60EB1E66301900465694 /* TRAFFICITEMDETAIL.swift */,
+				5CED60EC1E66301900465694 /* TRAFFICITEMS.swift */,
+				5CED60ED1E66301900465694 /* TrafficRoot.swift */,
+			);
+			name = Traffic;
+			sourceTree = "<group>";
+		};
+		5CED60D91E662FD900465694 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Weather;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,18 +427,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CED60F61E66301900465694 /* GEOLOC.swift in Sources */,
+				5CED60FF1E66301900465694 /* TRAFFICITEMDETAIL.swift in Sources */,
+				5CED60F81E66301900465694 /* NAVTECH.swift in Sources */,
+				5CED61011E66301900465694 /* TrafficRoot.swift in Sources */,
+				5CED60FE1E66301900465694 /* TRAFFICITEM.swift in Sources */,
+				5CED60F21E66301900465694 /* DESCRIPTION.swift in Sources */,
+				5CED60FD1E66301900465694 /* TO.swift in Sources */,
 				5CE250731E6574B600B3D466 /* TransitRoot.swift in Sources */,
 				5CE2506E1E6574B600B3D466 /* At.swift in Sources */,
 				5C76B04A1E6388A000A93570 /* DetailViewController.swift in Sources */,
 				5CA3221C1E643FED00255A55 /* HereServices.swift in Sources */,
+				5CED60F31E66301900465694 /* DIRECTION.swift in Sources */,
+				5CED60F91E66301900465694 /* ORIGIN.swift in Sources */,
 				5CA3221A1E643A7700255A55 /* EndPoints.swift in Sources */,
+				5CED60FC1E66301900465694 /* SCHEDULEDCONSTRUCTIONEVENT.swift in Sources */,
+				5CED61001E66301900465694 /* TRAFFICITEMS.swift in Sources */,
 				5CA3221E1E64DC6700255A55 /* CurrentLocation.swift in Sources */,
+				5CED60FB1E66301900465694 /* RDSTMCLOCATIONS.swift in Sources */,
+				5CED60F51E66301900465694 /* EVENT.swift in Sources */,
+				5CED60EF1E66301900465694 /* ALERTC.swift in Sources */,
 				5CE250721E6574B600B3D466 /* Stn.swift in Sources */,
+				5CED60F11E66301900465694 /* DEFINED.swift in Sources */,
 				5C76B0481E6388A000A93570 /* MasterViewController.swift in Sources */,
 				5CE2506F1E6574B600B3D466 /* Line.swift in Sources */,
 				5CA322181E6425B400255A55 /* HereAPI.swift in Sources */,
 				5CE250711E6574B600B3D466 /* Station.swift in Sources */,
+				5CED60F71E66301900465694 /* LOCATION.swift in Sources */,
+				5CED60EE1E66301900465694 /* ABBREVIATION.swift in Sources */,
+				5CED60F01E66301900465694 /* CRITICALITY.swift in Sources */,
+				5CED60FA1E66301900465694 /* RDSTMC.swift in Sources */,
 				5CE250701E6574B600B3D466 /* Re.swift in Sources */,
+				5CED60F41E66301900465694 /* EDGE.swift in Sources */,
 				5C76B0461E6388A000A93570 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

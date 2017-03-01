@@ -38,7 +38,7 @@ struct WeatherRequest : HereAPIRequest {
     }
     internal var queryItems: [URLQueryItem]?
 
-    init(with lat: Double, long: Double, oneobservation: Bool = true, product: Product = .observation) {
+    init(withLat lat: Double, long: Double, oneobservation: Bool = true, product: Product = .observation) {
         queryItems = Array()
         queryItems?.append(URLQueryItem(name: "product", value: product.rawValue))
         queryItems?.append(URLQueryItem(name: "oneobservation", value: String(oneobservation)))
@@ -61,7 +61,7 @@ struct TrafficRequest : HereAPIRequest {
     }
     internal var queryItems: [URLQueryItem]?
     
-    init(with lat: Double, long: Double, radius: Meters = 350, criticality: [Criticality] = [.critical, .major]) {
+    init(withLat lat: Double, long: Double, radius: Meters = 350, criticality: [Criticality] = [.critical, .major]) {
         queryItems = Array()
         let prox = "\(lat),\(long),\(radius)"
         var criticalityString = ""
@@ -101,6 +101,40 @@ extension ServicesProtocol {
 }
 
 struct TransitService : ServicesProtocol {
+    
+    typealias SuccessBlock = (_ data: TransitRoot) -> Void
+    internal var task: URLSessionDataTask?
+    
+    internal mutating func fetch(request: HereAPIRequest, successHandler: @escaping SuccessBlock, and failureHandler: ServicesProtocol.FailureBlock?) {
+        let urlRequest = URLRequest(url: request.url)
+        task = remoteFetch(with: urlRequest, successHandler: { (responseCode: Int, responseData: AnyObject) in
+            let parsedObject = TransitRoot(fromDictionary: responseData as! [String : AnyObject])
+            successHandler(parsedObject)
+        }) { (responseCode: Int, error: NSError?, response: URLResponse?) in
+            print(error ?? "No Error")
+            response?.prettyPrint()
+        }
+    }
+}
+
+struct TrafficService : ServicesProtocol {
+    
+    typealias SuccessBlock = (_ data: TransitRoot) -> Void
+    internal var task: URLSessionDataTask?
+    
+    internal mutating func fetch(request: HereAPIRequest, successHandler: @escaping SuccessBlock, and failureHandler: ServicesProtocol.FailureBlock?) {
+        let urlRequest = URLRequest(url: request.url)
+        task = remoteFetch(with: urlRequest, successHandler: { (responseCode: Int, responseData: AnyObject) in
+            let parsedObject = TransitRoot(fromDictionary: responseData as! [String : AnyObject])
+            successHandler(parsedObject)
+        }) { (responseCode: Int, error: NSError?, response: URLResponse?) in
+            print(error ?? "No Error")
+            response?.prettyPrint()
+        }
+    }
+}
+
+struct WeatherService : ServicesProtocol {
     
     typealias SuccessBlock = (_ data: TransitRoot) -> Void
     internal var task: URLSessionDataTask?

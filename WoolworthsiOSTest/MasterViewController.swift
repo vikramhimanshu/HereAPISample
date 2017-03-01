@@ -44,9 +44,10 @@ class MasterViewController: UITableViewController {
             }
         }
         
-        var service = TransitService()
-        let request = TransistRequest(withLat: -33.865143, long: 151.209900)
+        var service = WeatherService()
         
+        let request = WeatherRequest(withLat: -33.865143, long: 151.209900)
+//        let request2 = TrafficRequest(withLat: -33.865143, long: 151.209900)
         service.fetch(request: request, successHandler: { (data: TransitRoot) in
             
         }) { (responseCode: Int, error: NSError?) in
